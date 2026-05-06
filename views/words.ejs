@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang ="en"> 
+<head>
+    <link rel = "stylehseet" href="/styles.css">
+    <title> Document</title>
+
+</head>
+<body> 
+        <h1>Welcome to Em's Word of the Day</h1>
+        <p>Everytime you visirt there will be a random word</p>
+
+    <% if(word){ %>
+        <p>Here is your word! </p>
+        <p><%= word %> - <%=- part %> </p>
+        <p><%= Definition %></p>
+    <% } %>
+
+    <% if (allWords){ %>
+        <!--ALL WORDS SEGMENT OF THE FILE DOWN HERE-->
+        <h2> All Words</h2>
+        <ul>
+            <% for (let i=0; i < allWords.length; i++){
+                let parts = allWords[i].split('/t'); %>
+                <Li>
+                    <p> <%= parts [0]%> </p>
+                    (<%= parts[1] %> - <%= parts[2]%>)
+                </Li>
+                <% } %>
+        </ul>
+     <% } %>
+
+</body>
+
+</html>

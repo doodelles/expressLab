@@ -11,9 +11,29 @@ router.get('/word',async (req, res) =>{ // /users/
     res.render('wotd',{word: word, part:part, definition:definition});
     //do soemthign with that fucntion up here
 });
-router.hget('allwords', (req,res)=>{
-//hw-make path, simialr function that grabs all the words in order
-});
+router.get('allwords', (req,res)=>{
+/**?
+ * --class guidance to reference below --
+hw-make path, simialr function like in get from dictionary 
+that grabs all the words in order
+then have a page like render wotd,(wotd.ejs) we need to make an all words view
+that this will render and then loop thru all the words to make it happen and send back 
+and object with everything use the same concepts as in the get word form dictionary
+*/
+
+ try {
+    const data = await readFile('resources/allwords.txt', 'utf8');
+    let lines = data.split('\n');
+
+    lines.sort();
+   
+    res.render('words', {allWords: lines});
+ } catch (err){
+    console.log('There was an error reading the file:', err);
+ }
+// added refernece to this portion  in the words.ejs file 
+ });
+ 
 
 let getWordFromDictionary = async ()=>{
     try{
