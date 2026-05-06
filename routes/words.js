@@ -11,6 +11,9 @@ router.get('/word',async (req, res) =>{ // /users/
     res.render('wotd',{word: word, part:part, definition:definition});
     //do soemthign with that fucntion up here
 });
+router.hget('allwords', (req,res)=>{
+//hw-make path, simialr function that grabs all the words in order
+});
 
 let getWordFromDictionary = async ()=>{
     try{
